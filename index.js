@@ -27,7 +27,7 @@ const connect = () => {
 app.use(cookieParser());
 app.use(cors({
   origin: [
-    "http://localhost:3000",
+    "https://chic-conkies-c8db4e.netlify.app",
   ], credentials: true, exposedHeaders: ['SET-COOKIE'],
 }));
 app.use(express.json());
