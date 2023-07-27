@@ -26,9 +26,7 @@ const connect = () => {
 //middlewares
 app.use(cookieParser());
 app.use(cors({
-  origin: [
-    "https://chic-conkies-c8db4e.netlify.app",
-  ], credentials: true, exposedHeaders: ['SET-COOKIE'],
+  origin: true, credentials: true, exposedHeaders: ['SET-COOKIE'],
 }));
 app.use(express.json());
 app.use("/api/auth", authRoutes);

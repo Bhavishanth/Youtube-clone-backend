@@ -28,16 +28,18 @@ export const signin = async (req, res, next) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT);
     const { password, ...others } = user._doc;
-    console.log(token);
+    console.log(token)
+    // Set the token in the 'access_token' cookie and send it to the client
     res.cookie('access_token', token, {
       httpOnly: true,
-      secure: true, 
-      sameSite: 'None', 
-      maxAge: 3600000, 
-      path: '/', 
+      secure: true,
+      sameSite: 'None',
+      maxAge: 3600000,
+      path: '/',
     });
 
-    res.status(200).json({ message: 'success', others });
+
+    res.status(200).json({ message: 'success', token,userWithoutPassword});
   } catch (err) {
     next(err);
   }
